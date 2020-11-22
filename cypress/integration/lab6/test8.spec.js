@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Search Icon Positioning Test', () => {
+context('Cards Functioning Test', () => {
     beforeEach(() => {
         cy.on('uncaught:exception', (err, runnable) => {
             expect(err.message).to.include('something about the error');
@@ -18,8 +18,8 @@ context('Search Icon Positioning Test', () => {
         cy.visit('https://adoring-pasteur-3ae17d.netlify.app/index.html');
     });
 
-    it('Check position of search-icon', () => {
-        var search_icon = cy.get('.header-middle > form > [type="submit"]');
-        search_icon.should('have.css','background-position','center');
+    it('Check when click on the card, user is redirected', () => {
+        cy.get('.tab1 > :nth-child(1) > .men-pro-item > .men-thumb-item > .pro-image-front').trigger('mouseover').click();
+        cy.url().should('not.eq','https://adoring-pasteur-3ae17d.netlify.app/index.html')
     });
 });

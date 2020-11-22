@@ -18,8 +18,7 @@ context('Search Icon Positioning Test', () => {
         cy.visit('https://adoring-pasteur-3ae17d.netlify.app/index.html');
     });
 
-    it('Check position of search-icon', () => {
-        var search_icon = cy.get('.header-middle > form > [type="submit"]');
-        search_icon.should('have.css','background-position','center');
+    it('Check Favicon', () => {
+        cy.get('head > link > [href="favicon"]');
     });
 });

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Search Icon Positioning Test', () => {
+context('Filter Functioning Test', () => {
     beforeEach(() => {
         cy.on('uncaught:exception', (err, runnable) => {
             expect(err.message).to.include('something about the error');
@@ -18,8 +18,10 @@ context('Search Icon Positioning Test', () => {
         cy.visit('https://adoring-pasteur-3ae17d.netlify.app/index.html');
     });
 
-    it('Check position of search-icon', () => {
-        var search_icon = cy.get('.header-middle > form > [type="submit"]');
-        search_icon.should('have.css','background-position','center');
+
+    it('Check filter range for cursor', () => {
+        cy.get(':nth-child(3) > .dropdown-toggle').click();
+        cy.get('.open > .dropdown-menu > .agile_inner_drop_nav_info > :nth-child(2) > .multi-column-dropdown > li > a').click();
+        cy.get('#slider-range').trigger('mouseover').should('have.css','cursor','pointer')
     });
 });
